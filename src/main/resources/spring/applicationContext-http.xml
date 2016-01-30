@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" 
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+	
+	<!-- 
+	<bean id="pollingConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager">
+		<property name="maxTotal" value="10" />
+		<property name="defaultMaxPerRoute" value="5" />
+	</bean>
+	 -->
+	 
+	<bean id="pollingConnectionManager" class="com.dot.live.utils.HttpClientUtil" factory-method="getConnManager">
+	</bean>
+	
+	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder" factory-method="create">
+		<property name="connectionManager" ref="pollingConnectionManager" />
+		<!-- <property name="proxy" ref="proxyHttpHost" /> -->
+	</bean>
+	
+	<bean id="proxyHttpHost" class="org.apache.http.HttpHost">
+		<constructor-arg name="hostname" value="109.105.20.144" />
+		<constructor-arg name="port" value="8888" />
+	</bean>
+	
+	<bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build" >
+	</bean>
+	
+	<bean id="httpClientFactory" class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">  
+            <property name="httpClient" ref="httpClient"/>
+    </bean>  
+    
+    <!--RestTemplate-->  
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">  
+        <constructor-arg ref="httpClientFactory"/>
+        <property name="messageConverters">
+	        <list>
+	            <bean id="formHttpMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter"></bean>
+               	<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter"></bean>
+               	<bean id="jsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+               		<property name="supportedMediaTypes">  
+	                <list>  
+	                    <value>text/json;charset=UTF-8</value>  
+                		<value>application/json;charset=UTF-8</value>
+	                </list>  
+	            </property>  
+               	</bean>
+	        </list>
+	     </property>
+    </bean>
+      
+</beans>

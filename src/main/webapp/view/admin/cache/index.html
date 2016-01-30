@@ -1,0 +1,79 @@
+<div class="panel panel-default" id="index_tab">
+<div class="panel-heading container-fluid">
+	<div class="row">
+	<div class="col-md-4">缓存参数列表：</div>
+  	<div class="col-md-4 col-md-offset-4 text-right">
+  		<div class="btn-group">
+  			<button type="button" class="btn btn-default" onclick="add();" aria-label="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+	  		<button type="button" class="btn btn-default" onclick="edit();" aria-label="edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+	  		<button type="button" class="btn btn-default" onclick="del();" aria-label="del"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+  		</div>
+  	</div>
+  </div>
+</div>
+<div class="panel-body">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th><input type="checkbox"></th>
+			<th>编码</th>
+			<th>名称</th>
+			<th>前缀</th>
+			<th>缓存时间（秒）</th>
+		</tr>
+	</thead>
+	<tbody id="result">
+	</tbody>
+</table>
+</div>
+</div>
+<nav class="text-right page">
+  <ul class="pagination">
+   
+  </ul>
+</nav>
+<script id="theTmpl" type="text/x-jsrender">
+<tr>
+	<th scope="row"><input type="checkbox" value="{{:id}}"></th>
+	<td>{{:id}}</td>
+	<td>{{:name}}</td>
+	<td>{{:prefix}}</td>
+	<td>{{:duration}}</td>
+</tr>
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	showPage(admin.currentPage);
+	$("thead tr th input:checkbox").on("click", function(event){
+		if($(this).prop("checked")){
+			$("tbody tr th input:checkbox").prop("checked", true);
+		}else{
+			$("tbody tr th input:checkbox").prop("checked", false);
+		}
+	});
+	
+	$("tbody tr th input:checkbox").on("click", function(event){
+		if($(this).prop("checked")){
+			var checkAll = true; 
+			$("tbody tr th input:checkbox").each(function(i){
+				 if(!$(this).prop("checked")){
+					 checkAll = false;
+				 }
+			});
+			if(checkAll){
+				$("thead tr th input:checkbox").prop("checked",true);
+			}
+		}else{
+			var uncheckAll = true; 
+			$("tbody tr th input:checkbox").each(function(i){
+				 if($(this).prop("checked")){
+					 uncheckAll = false;
+				 }
+			});
+			if(uncheckAll){
+				$("thead tr th input:checkbox").prop("checked",false);
+			}
+		}
+	});
+});
+</script>

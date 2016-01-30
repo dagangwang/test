@@ -1,0 +1,45 @@
+
+<div class="panel panel-default" id="index_tab">
+<div class="panel-heading container-fluid">
+	<div class="row">
+	<div class="col-md-4">系统参数列表：</div>
+  	<div class="col-md-4 col-md-offset-4 text-right">
+  		<div class="btn-group">
+  			<button type="button" class="btn btn-default" onclick="setGuide('VALID')" aria-label="valid">VALID</button>
+	  		<button type="button" class="btn btn-default" onclick="setGuide('REPLY')" aria-label="reply">REPLY</button>
+	  	</div>
+  	</div>
+  </div>
+</div>
+<div class="panel-body" id="result">
+	
+</div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({  
+	    type: "get",  
+	    url: "/admin/weixin/getGuideType.do",  
+	    dataType:"json",  
+	    success: function(data){ 
+	    	$("#result").html("当前微信入口是："+data);
+	    },  
+	    error: function(res){  
+	    }  
+	});  
+});
+function setGuide(type){
+	$.ajax({  
+	    type: "post",  
+	    url: "/admin/weixin/setGuideType.do",  
+	    data: "type="+type,
+	    success: function(data){ 
+	    	$("#result").html("当前微信入口是："+data);
+	    },  
+	    error: function(res){  
+	    }  
+	});  
+}
+</script>

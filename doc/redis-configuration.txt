@@ -1,0 +1,4 @@
+//微信入口类型缓存key
+com:dot:live:weixin:entry
+//微信token缓存key
+com:dot:live:weixin:token

@@ -1,0 +1,86 @@
+<script type="text/javascript" src="/view/resource/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/view/resource/js/messages_zh.js"></script>
+<script type="text/javascript">
+ $(function(){
+     $("#myform").validate();
+ });
+</script>
+<div class="panel panel-default">
+	<div class="panel-heading container-fluid">
+		<div class="row">
+			<div class="col-md-4">编辑缓存配置：</div>
+		 </div>
+	</div>
+   <div class="panel-body container-fluid">
+   		<form id="form">
+   		
+		</form>
+   </div>
+</div>
+<script id="theTmpl" type="text/x-jsrender">
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="id" >编码：</label>
+	   		</div>
+			<div class="col-md-10">
+			  	<input type="text" class="form-control" id="id" name="id" value="{{:id}}" required placeholder="编码...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="name" >名称：</label>
+	   		</div>
+			<div class="col-md-10">
+			  	<input type="text" class="form-control" id="name" name="name" value="{{:name}}" required placeholder="名称...">
+			</div>
+		</div>
+   		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="prefix" >前缀：</label>
+	   		</div>
+			<div class="col-md-10">
+       			<input class="form-control" id="prefix" name="prefix" value="{{:prefix}}" required placeholder="描述...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="duration" >时长：</label>
+	   		</div>
+			<div class="col-md-10">
+       			<input class="form-control" id="duration" name="duration" value="{{:duration}}"  placeholder="时长...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="duration" >描述：</label>
+	   		</div>
+			<div class="col-md-10">
+       			<textarea id="desc" name="desc" class="form-control" rows="3" placeholder="描述...">{{:desc}}</textarea>
+			</div>
+		</div>
+		
+	   <div class="row">
+			<div class="col-md-4 col-md-offset-6">
+	   			<button type="button" class="btn btn-default submit">提交</button>
+	   			<button type="button" class="btn btn-default cancel">取消</button>
+	   		</div>
+		</div>
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#form").validate();
+	$("form").on("click", "button.submit",function(event){
+		if($("#form").valid()){
+			save();
+		}
+	});
+	$("form").on("click", "button.cancel",function(event){
+		index();
+	});
+});
+</script>
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">   
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>   
+  
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">   
+        <layout class="org.apache.log4j.PatternLayout">   
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p]  %c {%F:%L} - %m%n"/>   
+        </layout>   
+    </appender>   
+  
+    <appender name="fileOutInfo" class="org.apache.log4j.RollingFileAppender">   
+        <param name="File" value="logs/live-web-info.log"/>   
+        <param name="Append" value="true"/>   
+        <param name="MaxFileSize" value="81920KB"/>   
+        <param name="MaxBackupIndex" value="5"/>
+        <param name="BufferedIO" value="false" />  
+        <param name="BufferSize" value="8192" /> 
+        <layout class="org.apache.log4j.PatternLayout">   
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p]  %c {%F:%L} - %m%n"/>   
+        </layout>   
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">   
+            <param name="LevelMin" value="INFO" />   
+            <param name="LevelMax" value="INFO" />   
+        </filter>   
+    </appender>   
+  
+    <appender name="fileOutWarn" class="org.apache.log4j.RollingFileAppender">   
+        <param name="File" value="logs/live-web-warn.log"/>   
+        <param name="Append" value="true"/>   
+        <param name="MaxFileSize" value="81920KB"/>   
+        <param name="MaxBackupIndex" value="5"/> 
+        <param name="BufferedIO" value="false" />
+        <param name="BufferSize" value="8192" />  
+        <layout class="org.apache.log4j.PatternLayout">   
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p]  %c {%F:%L} - %m%n"/>   
+        </layout>   
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">   
+            <param name="LevelMin" value="WARN" />   
+            <param name="LevelMax" value="WARN" />   
+        </filter>   
+    </appender>   
+
+    <appender name="fileOutError" class="org.apache.log4j.RollingFileAppender">   
+        <param name="File" value="logs/live-web-error.log"/>   
+        <param name="Append" value="true"/>   
+        <param name="MaxFileSize" value="81920KB"/>   
+        <param name="MaxBackupIndex" value="5"/>   
+        <param name="BufferedIO" value="false" />
+        <param name="BufferSize" value="8192" />
+        <layout class="org.apache.log4j.PatternLayout">   
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p]  %c {%F:%L} - %m%n"/>   
+        </layout>   
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">   
+            <param name="LevelMin" value="ERROR" />   
+            <param name="LevelMax" value="ERROR" />   
+        </filter>   
+    </appender>   
+  
+    <root>   
+        <priority value="info"/>
+        <appender-ref ref="stdout"/> 
+<!-- 
+    	<appender-ref ref="fileOutInfo"/>
+    	<appender-ref ref="fileOutWarn"/>
+        <appender-ref ref="fileOutError"/> 
+-->
+    </root>
+   
+    <logger name="com.dot.live" additivity="false">
+    	<level value="info" />
+        <appender-ref ref="stdout"/> 
+    	<appender-ref ref="fileOutWarn"/>
+    	<appender-ref ref="fileOutInfo"/>
+    	<appender-ref ref="fileOutError"/>
+    </logger> 
+
+</log4j:configuration>   

@@ -1,0 +1,86 @@
+<script type="text/javascript" src="/view/resource/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/view/resource/js/messages_zh.js"></script>
+<script type="text/javascript" src="/view/resource/ckeditor/ckeditor.js"></script>
+
+<div class="panel panel-default">
+	<div class="panel-heading container-fluid">
+		<div class="row">
+			<div class="col-md-4">修改标题：</div>
+		 </div>
+	</div>
+   <div class="panel-body container-fluid">
+   		<form id="form">
+		
+		</form>
+   </div>
+</div>
+
+<script id="theTmpl" type="text/x-jsrender">
+	<input type="hidden" name="id" value="{{:id}}">
+	<div class="row">
+			<div class="col-md-2">
+	   			<label for="id" >标题：</label>
+	   		</div>
+			<div class="col-md-10">
+			  	<input type="text" class="form-control" id="title" name="title" value="{{:title }}" required placeholder="标题...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="pId" >栏目：</label>
+	   		</div>
+			<div class="col-md-10">
+			  	<input type="text" class="form-control" id="pId" name="columnId" value="{{:columnId }}" required placeholder="父编码...">
+			</div>
+		</div>
+		
+   		<div class="row">
+	   		<div class="col-md-2">
+	   			<label for="name" >作者：</label>
+	   		</div>
+			<div class="col-md-10">
+			  	<input type="text" class="form-control" id="author" name="author" value="{{:author }}" required placeholder="名称...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="value" >简介：</label>
+	   		</div>
+			<div class="col-md-10">
+			  <input type="text" class="form-control" id="brief" name="brief" value="{{:brief }}" required placeholder="值...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="duration" >内容：</label>
+	   		</div>
+			<div class="col-md-10">
+       			<textarea id="content" name="content" placeholder="内容...">{{:content }}</textarea>
+			</div>
+		</div>
+	   <div class="row">
+			<div class="col-md-4 col-md-offset-6">
+	   			<button type="button" class="btn btn-default submit">提交</button>
+	   			<button type="button" class="btn btn-default cancel">取消</button>
+	   		</div>
+		</div>
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#form").validate();
+	$("form").on("click", "button.submit",function(event){
+		if($("#form").valid()){
+			for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }
+			update();
+		}
+	});
+	$("form").on("click", "button.cancel",function(event){
+		index();
+	});
+});
+
+</script>

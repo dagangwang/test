@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>方德口腔</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="口腔,智齿,牙痛,种牙">
+<meta name="Keywords" content="口腔,智齿,牙痛,种牙" />
+<meta name="author" content="顺意网">
+<meta name="robots" content="index,follow">
+<meta name="application-name" content="shunyilive.com">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="stylesheet" href="/view/resource/css/unslider.css">
+<link rel="stylesheet" href="/view/resource/css/unslider-dots.css">
+</head>
+<body style="background-color: #cccccc">
+<div class="my-slider">
+	<ul>
+		<li><img src="http://pic.shop.lenovo.com.cn/g1/M00/03/8A/CmBZEFYzLauAIwkoAACS3X0-uHo856.jpg"></li>
+		<li><img src="http://pic.shop.lenovo.com.cn/g1/M00/00/F3/CmBZD1YzLaSATaakAAQoDHwkqq0216.jpg"></li>
+		<li><img src="http://pic.shop.lenovo.com.cn/g1/M00/03/8A/CmBZEFYzLauAIwkoAACS3X0-uHo856.jpg"></li>
+	</ul>
+</div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="/view/resource/js/unslider-min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.my-slider').unslider({
+		infinite: true,
+		autoplay:true,
+		nav: true,                //  Generate an automatic clickable navigation for each slide in your slider [default: true]
+		animation: 'fade',        // 	How Unslider animates each slide [default: horizontal]
+		                          //  	'horizontal', which moves the slides from left-to-right
+		                          //  	'vertical', which moves the slides from top-to-bottom
+		                          //  	'fade', which crossfades slides
+		arrows: true  
+	});
+});  
+</script>
+</html>

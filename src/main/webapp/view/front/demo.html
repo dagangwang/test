@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>music tent</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../resource/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/view/resource/css/unslider.css">
+    <link rel="stylesheet" href="/view/resource/css/unslider-dots.css">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../resource/js/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../resource/bootstrap/bootstrap.min.js"></script>
+    <script src="/view/resource/js/unslider-min.js"></script>
+    <style type="text/css">
+    	
+    /* Set the height of your slider to the height of your images */
+    	.unslider {
+			line-height:1;    	
+    	}
+    	
+    	.unslider a{
+			color: #000;
+    		text-decoration: none; 
+    		font-family: none;   	
+    	}
+    	
+		.banner {
+			height: 400px;
+		}
+	
+		/* Make the images fill the screen width */
+		.banner img {
+			width: 100%;
+		}
+		
+		/* Style the text over the slides */
+		.banner {
+			text-align: center;
+		}
+		.banner .slide-text {
+			position: absolute;
+			left: 0;
+			right: 0;
+			padding: 150px 0 50px;
+			color: white;
+			text-shadow: 2px 2px 2px rgba(0,0,0, .5);
+			font: bold 3em/1.4 Helvetica, Arial, sans-serif;
+		}
+		
+		a:link, a:visited {
+			font-family: "Segoe UI",Arial,sans-serif !important;
+			font-weight:400;
+			color: #373a3c;
+		}
+		
+		a:focus, a:hover,a:active{
+			font-weight:400;
+			color: #373a3c;
+		}
+		
+
+		
+		/* Style the dots*/
+		.unslider {
+			/* set the positioning context for the dots */
+			position: relative;
+		}
+		.unslider-nav { 
+			/* position the navigation dots over the slides */
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 90%;
+			
+			z-index: 1000; /* Make sure the dots show over the images */
+		}
+		
+		
+		/* Style the arrows*/
+		.unslider {
+			/* set the positioning context for the dots */
+			position: relative;
+		}
+		.unslider-arrow { 
+			/* position the navigation dots over the slides */
+			position: absolute;
+			top: 50%;
+			
+			z-index: 1000; /* Make sure the dots show over the images */
+			
+			font-size: 2em;
+			visibility: hidden;
+		}
+		
+		/* Change the arrow styles
+			You could also use an image instead
+		*/
+		.unslider-arrow { 
+			visibility: hidden;	/* Hide the default arrows */
+		}
+		
+		/* Use dynamic content to add in a different character and show it */
+		.unslider-arrow:before {
+			visibility: visible;
+		}
+		.unslider-arrow.prev:before {
+			content: '<';
+		}
+		.unslider-arrow.next:before {
+			content: '>';
+		}
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-static-top ">
+    	<div class="container">
+      <a class="navbar-brand" href="#">CG-音乐工作室</a>
+      <ul class="nav nav-pills">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">关于我们</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">公司动态</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">公司环境</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">作品展示</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">联系我们</a>
+        </li>
+      </ul>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div>
+      <div class="container">
+			<div class="banner">
+				<ul>
+					<li><a
+						href="/pc/detail.html?rid=102"><img
+							src="http://pic.shop.lenovo.com.cn/g1/M00/03/8A/CmBZEFYzLauAIwkoAACS3X0-uHo856.jpg"></a></li>
+					<li><a
+						href="/pc/detail.html?rid=102"><img
+							src="http://pic.shop.lenovo.com.cn/g1/M00/00/F3/CmBZD1YzLaSATaakAAQoDHwkqq0216.jpg"></a></li>
+					<li><a
+						href="/pc/detail.html?rid=102"><img
+							src="http://pic.shop.lenovo.com.cn/g1/M00/03/8A/CmBZEFYzLauAIwkoAACS3X0-uHo856.jpg"></a></li>
+				</ul>
+			</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h3>作品展示</h3>
+          <p><a><span>北京达科多功能厅项目承建</span><span>2015-12-03</span></a></p>
+          <p><a class="btn btn-secondary" href="#" role="button">更多 &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>公司动态</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">更多&raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>关于我们</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-secondary" href="#" role="button">更多 &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script>
+$(function() {
+	$('.banner').unslider({
+		autoplay: true,           //  Automatically start the slideshow 							[default: false]
+		speed: 500,              //  The speed to animate each slide (in milliseconds) 		[default: 750]
+		delay: 5000,              //  The delay between slide animations (in milliseconds)	[default: 3000]
+		nav: true,                //  Generate an automatic clickable navigation for each slide in your slider [default: true]
+		infinite: true,
+		animation: 'horizontal',        // 	How Unslider animates each slide [default: horizontal]
+		                          //  	'horizontal', which moves the slides from left-to-right
+		                          //  	'vertical', which moves the slides from top-to-bottom
+		                          //  	'fade', which crossfades slides
+		arrows: true             //  Show the nav arrows [default: false]
+	});
+});
+</script>
+  </body>
+</html>

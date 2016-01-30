@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	
+	<title>Advanced Unslider Demo</title>
+	
+<link rel="stylesheet" href="/view/resource/css/unslider.css">
+<link rel="stylesheet" href="/view/resource/css/unslider-dots.css">
+	
+	<style>
+	
+		/* Set the height of your slider to the height of your images */
+		.banner {
+			height: 500px;
+		}
+	
+		/* Make the images fill the screen width */
+		.banner img {
+			width: 100%;
+		}
+		
+		/* Style the text over the slides */
+		.banner {
+			text-align: center;
+		}
+		.banner .slide-text {
+			position: absolute;
+			left: 0;
+			right: 0;
+			padding: 150px 0 50px;
+			color: white;
+			text-shadow: 2px 2px 2px rgba(0,0,0, .5);
+			font: bold 3em/1.4 Helvetica, Arial, sans-serif;
+		}
+		a:link, a:visited, a:focus, a:hover, a:active {
+			color: pink;
+			text-decoration: none;
+		}
+
+		
+		/* Style the dots*/
+		.unslider {
+			/* set the positioning context for the dots */
+			position: relative;
+		}
+		.unslider-nav { 
+			/* position the navigation dots over the slides */
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 95%;
+			
+			z-index: 1000; /* Make sure the dots show over the images */
+		}
+		
+		
+		/* Style the arrows*/
+		.unslider {
+			/* set the positioning context for the dots */
+			position: relative;
+		}
+		.unslider-arrow { 
+			/* position the navigation dots over the slides */
+			position: absolute;
+			top: 50%;
+			
+			z-index: 1000; /* Make sure the dots show over the images */
+			
+			font-size: 2em;
+			visibility: hidden;
+		}
+		
+		/* Change the arrow styles
+			You could also use an image instead
+		*/
+		.unslider-arrow { 
+			visibility: hidden;	/* Hide the default arrows */
+		}
+		
+		/* Use dynamic content to add in a different character and show it */
+		.unslider-arrow:before {
+			visibility: visible;
+		}
+		.unslider-arrow.prev:before {
+			content: '<';
+		}
+		.unslider-arrow.next:before {
+			content: '>';
+		}
+		 
+	</style>
+	
+</head>
+
+<body>
+	
+	
+	
+
+	<section class="banner">
+		<ul>
+			<li>
+				<div class="slide-text">
+					<h1>Unslider Example</h1>
+					<p>More advanced options</p>
+				</div>
+				<img src="http://pic.shop.lenovo.com.cn/g1/M00/03/8A/CmBZEFYzLauAIwkoAACS3X0-uHo856.jpg">
+			</li>
+			<li>
+				<div class="slide-text">
+					<p>You can show the dots on the bottom, along with other options.</p>
+					<p>This slider is set to fill the page width.</p>
+				</div>
+				<img src="http://pic.shop.lenovo.com.cn/g1/M00/03/8A/CmBZEFYzLauAIwkoAACS3X0-uHo856.jpg">
+			</li>
+			<li>
+				<div class="slide-text">
+					<p>Sewing machines by KJ James.</p>
+					<p><a href="http://artsaintjames.com" title="KJ James">artsaintjames.com</a></p>
+				</div>
+				<img src="http://pic.shop.lenovo.com.cn/g1/M00/03/8A/CmBZEFYzLauAIwkoAACS3X0-uHo856.jpg">
+			</li>
+		</ul>
+	</section>
+
+
+
+<!-- This includes the Google hosted jQuery framework -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- This includes the actual Galleria code (minified) -->
+	<script src="/view/resource/js/unslider-min.js"></script>
+	
+	<script>
+		$(function() {
+			$('.banner').unslider({
+				autoplay: true,           //  Automatically start the slideshow 							[default: false]
+				speed: 1000,              //  The speed to animate each slide (in milliseconds) 		[default: 750]
+				delay: 6000,              //  The delay between slide animations (in milliseconds)	[default: 3000]
+				nav: true,                //  Generate an automatic clickable navigation for each slide in your slider [default: true]
+				infinite: true,
+				animation: 'fade',        // 	How Unslider animates each slide [default: horizontal]
+				                          //  	'horizontal', which moves the slides from left-to-right
+				                          //  	'vertical', which moves the slides from top-to-bottom
+				                          //  	'fade', which crossfades slides
+				arrows: true             //  Show the nav arrows [default: false]
+			});
+		});
+	</script>
+
+</body>
+</html>

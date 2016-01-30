@@ -1,0 +1,64 @@
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand hidden-sm" href="#">方德口腔</a>
+    </div>
+    <div class="navbar-collapse collapse" role="navigatiz`on">
+      <ul class="nav navbar-nav navbar-left">
+      	 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">系统管理<b class="caret"></b></a>
+        	<ul class="dropdown-menu">
+        		<li><a href="#" onclick="showMenu(this,'config')">系统参数</a></li>
+        		<li><a href="#" onclick="showMenu(this,'cache')">缓存管理</a></li>
+        	</ul>
+        </li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">内容发布<b class="caret"></b></a>
+        	<ul class="dropdown-menu">
+        		<li><a href="#" onclick="showMenu(this,'article')">文章管理</a></li>
+        	</ul>
+        </li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">微信<b class="caret"></b></a>
+        	<ul class="dropdown-menu">
+        		<li><a href="#" onclick="showWx(this,'guide')">入口设置</a></li>
+        		<li><a href="#" onclick="showWx(this,'token')">token</a></li>
+        	</ul>
+        </li>
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" onclick="doMenu('/admin/config/dbInit.do')" data-toggle="tooltip" data-placement="bottom" title="数据库初始化"><span class="glyphicon glyphicon-hdd"></span></a></li>
+      	<li><a href="/j_spring_security_logout" data-toggle="tooltip" data-placement="bottom" title="退出系统"><span class="glyphicon glyphicon-log-out"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+function showMenu(self,menu){
+	$(self).parent().addClass("active").siblings().removeClass("active");
+	admin.memu = "admin/"+menu;
+	$("#mycontainer").empty().load("/view/"+admin.memu + "/index.html");
+}
+
+function showWx(self,menu){
+	$(self).parent().addClass("active").siblings().removeClass("active");
+	$("#mycontainer").empty().load("/view/admin/weixin/"+menu+".html");
+}
+
+function doMenu(url){
+	$.ajax({
+		url : url,
+		type : "get",
+		cache : false,
+		success : function() {
+			alert("success");
+		}
+	});
+}
+
+
+</script>

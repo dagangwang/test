@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+</head>
+<body>
+	<div id="navbar">
+	
+	</div>
+	<div id="mycontainer" class="container">
+	
+	</div>
+	<div id="footer">
+	</div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
+<script src="../resource/js/jsviews.js"></script>
+<script src="../resource/js/adm.js"></script>
+<script type="text/javascript">
+$("head").load("header.html");
+$("#navbar").load("navbar.html");
+$("#footer").load("footer.html");
+var admin = {
+	menu : null,
+	currentPage : 1
+} 
+</script>
+</html>

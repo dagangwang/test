@@ -1,0 +1,90 @@
+<script type="text/javascript" src="/view/resource/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/view/resource/js/messages_zh.js"></script>
+<script type="text/javascript" src="/view/resource/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+ $(function(){
+     $("#myform").validate();
+ });
+</script>
+<div class="panel panel-default">
+	<div class="panel-heading container-fluid">
+		<div class="row">
+			<div class="col-md-4">添加文章：</div>
+		 </div>
+	</div>
+   <div class="panel-body container-fluid">
+   		<form id="form" enctype="multipart/form-data" >
+   		<div class="row">
+			<div class="col-md-2">
+	   			<label for="id" >标题：</label>
+	   		</div>
+			<div class="col-md-10">
+			  	<input type="text" class="form-control" id="title" name="title" required placeholder="标题...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="name" >栏目：</label>
+	   		</div>
+			<div class="col-md-10">
+			  	<input type="text" class="form-control" id="columnId" name="columnId" required placeholder="栏目...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="name" >作者：</label>
+	   		</div>
+			<div class="col-md-10">
+			  	<input type="text" class="form-control" id="author" name="author" required placeholder="作者...">
+			</div>
+		</div>
+   		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="prefix" >简介：</label>
+	   		</div>
+			<div class="col-md-10">
+       			<input type="text" id="brief" name="brief" class="form-control"  required placeholder="简介...">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+	   			<label for="duration" >内容：</label>
+	   		</div>
+			<div class="col-md-10">
+       			<textarea id="content" name="content"  style="width:100%;height:240px;" placeholder="内容..."></textarea>
+			</div>
+		</div>
+		
+	   <div class="row">
+			<div class="col-md-4 col-md-offset-6">
+	   			<button type="button" class="btn btn-default submit">提交</button>
+	   			<button type="button" class="btn btn-default cancel">取消</button>
+	   		</div>
+		</div>
+		</form>
+   </div>
+</div>
+
+
+<script type="text/javascript">
+ $(function(){
+	var ckOption = {language:'zh-cn',filebrowserUploadUrl:"/admin/editor/upload.do"};
+ 	CKEDITOR.replace('content',ckOption);
+	$("#form").validate();
+	$("form").on("click", "button.submit",function(event){
+		if($("#form").valid()){
+			for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }
+			save();
+		}
+	});
+	
+	$("form").on("click", "button.cancel",function(event){
+		index();
+	});
+});
+ 
+</script>
